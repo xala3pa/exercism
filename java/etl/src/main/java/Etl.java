@@ -1,13 +1,13 @@
-import java.util.HashMap;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Etl {
     public Map<String, Integer> transform(Map<Integer, List<String>> old) {
-        Map<String, Integer> transformerMap = new HashMap<>();
-
-        old.forEach((score, letters) -> letters.forEach(letter -> transformerMap.put(letter.toLowerCase(), score)));
-
-        return transformerMap;
+        return old.entrySet().stream()
+                .flatMap(index -> index.getValue().stream()
+                        .map(letter -> new SimpleEntry<>(index.getKey(), letter.toLowerCase())))
+                .collect(Collectors.toConcurrentMap(SimpleEntry::getValue, SimpleEntry::getKey));
     }
 }
