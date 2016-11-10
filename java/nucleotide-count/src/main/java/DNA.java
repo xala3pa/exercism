@@ -19,11 +19,11 @@ class DNA {
     }
 
     int count(char nucleotide) {
-        try {
+        if (nucleotideCount.containsKey(nucleotide)) {
             return nucleotideCount.get(nucleotide);
-        } catch (Exception e) {
-            throw new java.lang.IllegalArgumentException();
         }
+        throw new IllegalArgumentException("Invalid nucleotide");
+
     }
 
     Map<Character, Integer> nucleotideCounts() {
@@ -38,6 +38,7 @@ class DNA {
         nucleotideCount.put(G_SYMBOL, 0);
         nucleotideCount.put(T_SYMBOL, 0);
     }
+
     private void countNucleotides() {
         DNAString.chars().mapToObj(intCharacter -> (char) intCharacter).
                 forEach(letter -> nucleotideCount.put(letter, nucleotideCount.get(letter) + 1));
