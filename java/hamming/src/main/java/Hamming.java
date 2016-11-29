@@ -1,13 +1,13 @@
 public class Hamming {
-    public static int compute(String a, String a1) {
+    public static int compute(String originalDNA, String mutationDNA) {
         int differences = 0;
 
-        if (a.length() != a1.length()) {
+        if (originalDNA.length() != mutationDNA.length()) {
             throw new IllegalArgumentException();
         }
 
-        for (int i = 0; i < a.length(); i++) {
-            if (a.charAt(i) != a1.charAt(i)) {
+        for (int i = 0; i < originalDNA.length(); i++) {
+            if (originalDNA.charAt(i) != mutationDNA.charAt(i)) {
                 differences++;
             }
         }
