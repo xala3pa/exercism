@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.IntStream;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Robot {
     private String name;
@@ -20,26 +21,10 @@ public class Robot {
         this.name = getUniqueName();
     }
 
-    private int getRandomNumber() {
-        return random.nextInt(10);
-    }
-
-    private String getRandomUppercaseLetter() {
-        char character = (char) (random.nextInt(26) + 'A');
-
-        return String.valueOf(character);
-    }
-
     private String generateRandomName() {
-        StringBuilder name = new StringBuilder(5);
-
-        IntStream.rangeClosed(1, 2)
-                .forEach(i -> name.append(getRandomUppercaseLetter()));
-
-        IntStream.rangeClosed(1, 3)
-                .forEach(i -> name.append(getRandomNumber()));
-
-        return name.toString();
+        Stream<String> chars = random.ints(2, 'A', 'Z' + 1).mapToObj(i -> String.valueOf((char)i));
+        Stream<String> ints = random.ints(3, 0, 10).mapToObj(Integer::toString);
+        return Stream.concat(chars, ints).collect(Collectors.joining());
     }
 
     private String getUniqueName() {
