@@ -1,4 +1,3 @@
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -18,14 +17,12 @@ public class SchoolTest {
     assertTrue(school.db().isEmpty());
   }
 
-  @Ignore
   @Test
   public void addsStudents() {
     school.add("Aimee", 2);
     assertThat(school.db().get(2), hasItem("Aimee"));
   }
 
-  @Ignore
   @Test
   public void addsMoreStudentsInSameGrade() {
     final int grade = 2;
@@ -37,7 +34,6 @@ public class SchoolTest {
     assertThat(school.db().get(grade), allOf(hasItem("James"), hasItem("Blair"), hasItem("Paul")));
   }
 
-  @Ignore
   @Test
   public void addsStudentsInMultipleGrades() {
     school.add("Chelsea", 3);
@@ -50,7 +46,6 @@ public class SchoolTest {
     assertThat(school.db().get(7), hasItem("Logan"));
   }
 
-  @Ignore
   @Test
   public void getsStudentsInAGrade() {
     school.add("Franklin", 5);
@@ -60,13 +55,11 @@ public class SchoolTest {
     assertThat(school.grade(5), allOf(hasItem("Franklin"), hasItem("Bradley")));
   }
 
-  @Ignore
   @Test
   public void getsStudentsInEmptyGrade() {
     assertTrue(school.grade(1).isEmpty());
   }
 
-  @Ignore
   @Test
   public void sortsSchool() {
     school.add("Jennifer", 4);
