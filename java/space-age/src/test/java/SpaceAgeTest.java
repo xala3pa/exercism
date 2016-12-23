@@ -38,7 +38,6 @@ public class SpaceAgeTest {
         assertEquals(9.78, age.onVenus(), MAXIMUM_DELTA);
     }
 
-    @Ignore
     @Test
     public void ageOnMars() {
         SpaceAge age = new SpaceAge(2329871239L);
