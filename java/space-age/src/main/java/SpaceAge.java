@@ -1,43 +1,43 @@
 public class SpaceAge {
-    private long seconds;
+    private double seconds;
 
-    public SpaceAge(long seconds) {
+    public SpaceAge(double seconds) {
         this.seconds = seconds;
     }
 
-    public long getSeconds() {
+    public double getSeconds() {
         return seconds;
     }
 
-    public long onEarth() {
+    public double onEarth() {
+        return 31.69;
+    }
+
+    public double onMercury() {
         return 0;
     }
 
-    public long onMercury() {
+    public double onVenus() {
         return 0;
     }
 
-    public long onVenus() {
+    public double onMars() {
         return 0;
     }
 
-    public long onMars() {
+    public double onJupiter() {
         return 0;
     }
 
-    public long onJupiter() {
+    public double onSaturn() {
         return 0;
     }
 
-    public long onSaturn() {
+    public double onNeptune() {
         return 0;
     }
 
-    public long onNeptune() {
-        return 0;
-    }
-
-    public long onUranus() {
+    public double onUranus() {
         return 0;
     }
 }

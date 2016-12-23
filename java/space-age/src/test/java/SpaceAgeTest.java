@@ -15,7 +15,6 @@ public class SpaceAgeTest {
         assertEquals(1000000, age.getSeconds(), MAXIMUM_DELTA);
     }
 
-    @Ignore
     @Test
     public void ageOnEarth() {
         SpaceAge age = new SpaceAge(1000000000);
