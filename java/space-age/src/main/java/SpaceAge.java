@@ -1,5 +1,7 @@
 public class SpaceAge {
+    public static final double MERCURY_ORBITAL_PERIOD = 0.2408467;
     private double seconds;
+    private static final double SECONDS_PER_YEAR = 31557600;
 
     public SpaceAge(double seconds) {
         this.seconds = seconds;
@@ -10,11 +12,11 @@ public class SpaceAge {
     }
 
     public double onEarth() {
-        return 31.69;
+        return seconds / SECONDS_PER_YEAR;
     }
 
     public double onMercury() {
-        return 0;
+        return this.onEarth() / MERCURY_ORBITAL_PERIOD;
     }
 
     public double onVenus() {
