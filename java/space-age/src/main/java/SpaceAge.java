@@ -6,7 +6,8 @@ public class SpaceAge {
     private static final double MARS_ORBITAL_PERIOD = 1.8808158;
     private static final double JUPITER_ORBITAL_PERIOD = 11.862615;
     private static final double SATURN_ORBITAL_PERIOD = 29.447498;
-    private static final double URANUS_ORBITAL_PERIOD = 29.447498;
+    private static final double URANUS_ORBITAL_PERIOD = 84.016846;
+    private static final double NEPTUNE_ORBITAL_PERIOD = 164.79132;
 
     public SpaceAge(double seconds) {
         this.seconds = seconds;
@@ -41,7 +42,7 @@ public class SpaceAge {
     }
 
     public double onNeptune() {
-        return 0;
+        return getAgefor(NEPTUNE_ORBITAL_PERIOD);
     }
 
     public double onUranus() {

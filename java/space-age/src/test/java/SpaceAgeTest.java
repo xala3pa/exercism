@@ -1,5 +1,4 @@
 import org.junit.Test;
-import org.junit.Ignore;
 
 import static org.junit.Assert.assertEquals;
 
@@ -70,7 +69,6 @@ public class SpaceAgeTest {
         assertEquals(1.21, age.onUranus(), MAXIMUM_DELTA);
     }
 
-    @Ignore
     @Test
     public void ageOnNeptune() {
         SpaceAge age = new SpaceAge(8210123456L);
