@@ -40,11 +40,15 @@ class Scrabble {
 
   int getScore() {
     return word.chars()
-      .map(character -> dictionary.get(getLetter(character)))
+      .map(this::getCharacterValue)
       .reduce(Integer::sum).orElse(NO_SCORE);
   }
 
+  private int getCharacterValue(int character) {
+    return dictionary.get(getLetter(character));
+  }
+
   private String getLetter(int character) {
-    return String.valueOf((char)character);
+    return String.valueOf((char) character);
   }
 }
