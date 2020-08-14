@@ -1,3 +1,5 @@
+// Package space contains methods to perform calculations
+// based on various planetary orbital periods.
 package space
 
 //Planet : name of the planet
