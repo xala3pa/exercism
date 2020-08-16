@@ -6,22 +6,28 @@ import (
 )
 
 // Kind : type of triangle
-type Kind string
+type Kind int
 
 const (
 	//NaT : Not a Triangle
-	NaT Kind = "Not a Triangle"
+	NaT = iota
 	//Equ : Equilateral Triangle
-	Equ Kind = "Equilateral"
+	Equ
 	//Iso : Isosceles Triangle
-	Iso Kind = "Isosceles"
+	Iso
 	//Sca : Scalene Triangle
-	Sca Kind = "Scalene"
+	Sca
+	//Dge : Degenerate Triangle
+	Dge
 )
 
 // KindFromSides : function to indetify the type of triagle base on his sides
 func KindFromSides(a, b, c float64) Kind {
 
+	if isATriangle(a, b, c) && (a+b == c || a+c == b || b+c == a) {
+		return Dge
+	}
+	
 	if isATriangle(a, b, c) && (a == b && b == c) {
 		return Equ
 	}
