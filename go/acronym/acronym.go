@@ -2,18 +2,21 @@
 package acronym
 
 import (
-	"regexp"
 	"strings"
 )
 
-// Abbreviate function to fet the acronym od a any sentence.
+// Abbreviate function to find the acronym of a any sentence.
 func Abbreviate(s string) (ab string) {
-	s = strings.Replace(s, "-", " ", -1)
-	s = strings.Replace(s, "_", "", -1)
-	s = strings.Replace(s, "'", "", -1)
-	
-	r := regexp.MustCompile(`(\b\w)`)
-	a := strings.Join(r.FindAllString(s, -1), "")
 
-	return strings.ToUpper(a)
+	r := strings.FieldsFunc(s, split)
+
+	acronym := ""
+	for _, word := range r {
+		acronym += strings.ToUpper(word[0:1])
+	}
+	return acronym
+}
+
+func split(r rune) bool {
+	return r == ' ' || r == ',' || r == '-' || r == '_'
 }
